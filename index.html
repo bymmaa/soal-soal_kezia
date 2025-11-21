@@ -3,251 +3,387 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solusi Lengkap Riset Operasi</title>
+    <title>Modul Lengkap Riset Operasi (Set A & Set B)</title>
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
         mermaid.initialize({ startOnLoad: true });
     </script>
     <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --header-bg: #2c3e50;
+            --accent: #3498db;
+            --highlight: #f1c40f;
+            --danger: #e74c3c;
+            --success: #27ae60;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            background-color: var(--bg-color);
             color: #333;
-            max-width: 1000px;
-            margin: 0 auto;
+            line-height: 1.6;
             padding: 20px;
-            background-color: #f4f4f9;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        h1, h2, h3 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+        h1, h2 { color: var(--header-bg); }
+        h1 { text-align: center; border-bottom: 4px solid var(--accent); padding-bottom: 10px; margin-bottom: 40px; }
+        
+        .section-divider {
+            background-color: var(--header-bg);
+            color: white;
+            padding: 10px 20px;
+            margin-top: 50px;
+            border-radius: 8px;
+            font-size: 1.5em;
+            font-weight: bold;
         }
-        .container {
-            background: white;
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             padding: 25px;
             margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
         }
+
         .question-box {
-            background-color: #e8f4f8;
+            background-color: #eef2f3;
             padding: 15px;
-            border-left: 5px solid #3498db;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
             margin-bottom: 20px;
             font-style: italic;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+        .question-box h3 { margin-top: 0; color: #555; font-size: 1em; text-transform: uppercase; }
+
+        .logic-box {
+            background-color: #e8f8f5;
+            border-left: 4px solid var(--success);
+            padding: 15px;
+            margin: 15px 0;
         }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: center;
-        }
-        th {
-            background-color: #2c3e50;
-            color: white;
-        }
-        .selected {
-            background-color: #27ae60;
-            color: white;
-            font-weight: bold;
-            border: 2px solid #1e8449;
-        }
-        .dummy {
-            background-color: #e74c3c;
-            color: white;
-        }
-        .note {
-            font-size: 0.9em;
-            color: #666;
-            margin-top: 10px;
-        }
-        .result-highlight {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #d35400;
-        }
+        .logic-title { font-weight: bold; color: var(--success); display: block; margin-bottom: 5px; }
+
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: center; }
+        th { background-color: var(--header-bg); color: white; }
+        
+        .opt-cell { background-color: #d5f5e3; border: 2px solid #2ecc71; font-weight: bold; }
+        .dummy-cell { background-color: #fadbd8; color: var(--danger); }
+        .blocked-cell { background-color: #333; color: white; text-decoration: line-through; }
+
+        code { background-color: #eee; padding: 2px 5px; border-radius: 3px; font-family: monospace; }
     </style>
 </head>
 <body>
 
-    <h1>Soal Soal Riset Operasi UAS</h1>
-    <p>Soal Pertamap>
+    <h1>Master Jawaban Riset Operasi</h1>
+    <p style="text-align: center;">Dokumen ini berisi soal lengkap, jawaban, dan penjelasan logika ("Why") untuk semua soal yang diberikan.</p>
 
-    <div class="container">
-        <h2>1. Integer Programming (Metode Branch & Bound)</h2>
+    <div class="section-divider">BAGIAN 1: Soal Lembar Pertama</div>
+
+    <div class="card">
+        <h2>1. Integer Programming (Branch and Bound)</h2>
         
         <div class="question-box">
-            <strong>Soal:</strong><br>
-            Maksimalkan Z = 7x + 9y<br>
-            Kendala: -x + 3y ≤ 6; 7x + y ≤ 35; y ≤ 7<br>
-            Syarat: x, y bilangan integer non-negatif.
+            <h3>Soal Lengkap:</h3>
+            <p>Selesaikan masalah program linier di bawah ini dengan menggunakan metode <strong>Branch and Bound</strong>.<br>
+            <strong>Memaksimumkan:</strong> z = 7x + 9y<br>
+            <strong>Fungsi Kendala:</strong><br>
+            1) -x + 3y &le; 6<br>
+            2) 7x + y &le; 35<br>
+            3) y &le; 7<br>
+            Di mana x dan y bilangan integer non negatif. [Nilai maksimum 30]</p>
+        </div>
+        
+        
+<div class="section-divider">LAMPIRAN: Cara Menghitung Nilai Awal (Aljabar)</div>
+
+    <div class="card">
+        <h2>Detail Perhitungan Titik Potong (Node 0)</h2>
+        
+        <div class="question-box">
+            <h3>Untuk Soal 1 (x dan y):</h3>
+            <p>Menggunakan Substitusi Garis 1 dan 2:</p>
+            <div class="math-box" style="background: #fff; border-left: 3px solid #2c3e50;">
+                1) -x + 3y = 6 &rarr; <strong>x = 3y - 6</strong><br>
+                2) Substitusi ke pers 2: 7(3y - 6) + y = 35<br>
+                3) 21y - 42 + y = 35<br>
+                4) 22y = 77 &rarr; <strong>y = 3.5</strong><br>
+                5) Cari x: 3(3.5) - 6 &rarr; <strong>x = 4.5</strong>
+            </div>
+        </div>
+        
+        <body>
+
+    <div class="card">
+        <h2>Mengapa Tanda (&le;) Berubah Menjadi (=)?</h2>
+        
+        <div style="background-color: #e8f6f3; padding: 15px; border-left: 5px solid #27ae60; margin-bottom: 20px;">
+            <strong>Tujuan Utama:</strong> Kita sedang mencari <em>Titik Potong (Intersection)</em>.
         </div>
 
-        <h3>Analisis Logika:</h3>
-        <ol>
-            <li>Solusi awal (Relaksasi LP) ditemukan di titik potong garis kendala: <strong>x = 4.5, y = 3.5</strong> dengan Z = 63.</li>
-            <li>Karena hasil desimal, kita lakukan <strong>Branching</strong> (Percabangan) pada variabel x.</li>
-            <li>Kita uji x ≤ 4 dan x ≥ 5.</li>
-        </ol>
+        <p>Secara matematika, kamu tidak bisa mencari satu titik pertemuan spesifik antara dua "wilayah" (area arsiran). Kamu hanya bisa mencari titik pertemuan presisi antara dua <strong>"garis"</strong>.</p>
 
-        <h3>Visualisasi Pohon Keputusan (Branch & Bound Tree):</h3>
+        <div style="background-color: #fdf2e9; padding: 20px; border-radius: 8px; border: 1px solid #f39c12; margin: 20px 0;">
+            <h3 style="margin-top: 0; color: #d35400;">🏠 Analogi Dinding & Pojokan</h3>
+            <p>Bayangkan dua dinding bertemu di pojokan sebuah ruangan:</p>
+            <ul>
+                <li><strong>Dinding A</strong> adalah garis batas: <code>-x + 3y = 6</code></li>
+                <li><strong>Dinding B</strong> adalah garis batas: <code>7x + y = 35</code></li>
+            </ul>
+            <p>Titik pertemuan (pojokan) di mana kedua dinding itu bertabrakan adalah titik koordinat <strong>(4.5, 3.5)</strong>.</p>
+        </div>
+
+        <p><strong>Kesimpulan:</strong></p>
+        <p>Untuk menemukan koordinat pojokan itu secara presisi (mengetahui nilai X dan Y persisnya berapa), kita harus menganggap kita sedang menghitung garis pagarnya (persamaannya). Itulah alasannya kenapa tanda <strong>&le;</strong> (kurang dari) harus diubah sementara menjadi <strong>=</strong> (sama dengan) saat melakukan perhitungan.</p>
+    </div>
+
+</body>
+        <div class="logic-box">
+            <span class="logic-title">Kenapa harus Branch and Bound?</span>
+            Jika kita selesaikan pakai cara biasa (eliminasi/substitusi), kita dapat x=4.5 dan y=3.5. 
+            Dalam dunia nyata, kamu tidak bisa memproduksi 4.5 mobil. Kita butuh bilangan bulat. 
+            Kita tidak boleh asal membulatkan (misal 4.5 jadi 5) karena bisa melanggar batas kendala.
+            Maka, kita buat cabang: "Coba kalau x maksimal 4" dan "Coba kalau x minimal 5".
+        </div>
+
         <div class="mermaid">
             graph TD
-            A[<b>NODE A (Awal)</b><br>x=4.5, y=3.5<br>Z=63<br>Status: Tidak Layak (Pecahan)]
-            A -->|Cabang Kiri: x <= 4| B(<b>NODE B</b><br>x=4<br>y=3.33<br>Z=58<br>Status: Masih Pecahan)
-            A -->|Cabang Kanan: x >= 5| C(<b>NODE C</b><br>x=5<br>y=0<br>Z=35<br>Status: Integer, tapi Z kecil)
+            root["<b>Solusi Awal (LP)</b><br>x=4.5, y=3.5<br>Z=63<br>(Pecahan)"]
             
-            B -->|Membulatkan y ke bawah| D[<b>NODE D (SOLUSI)</b><br>x=4, y=3<br>Z=55<br>Status: Integer Optimal]
-            B -->|Membulatkan y ke atas| E[<b>NODE E</b><br>x=4, y=4<br>Status: Infeasible / Melanggar Batas]
+            root -->|Coba x <= 4| nodeA["<b>Cabang A</b><br>x=4<br>Hitung y maksimal: -4+3y<=6 -> 3y<=10 -> y=3.33<br>Bulatkan y ke bawah (Integer) -> <b>y=3</b><br>Z = 7(4)+9(3) = <b>55</b>"]
+            
+            root -->|Coba x >= 5| nodeB["<b>Cabang B</b><br>x=5<br>Hitung y maksimal: 7(5)+y<=35 -> 35+y<=35 -> <b>y=0</b><br>Z = 7(5)+9(0) = <b>35</b>"]
 
-            style D fill:#2ecc71,stroke:#333,stroke-width:4px,color:white
-            style A fill:#f1c40f,stroke:#333
-            style C fill:#e74c3c,stroke:#333,color:white
+            nodeA --> finish["<b>SOLUSI FINAL</b><br>Ambil Cabang A karena Z=55 > Z=35"]
+
+            style finish fill:#2ecc71,color:white
         </div>
-
-        <p class="result-highlight">Kesimpulan: Solusi optimal integer adalah x = 4, y = 3 dengan Z = 55.</p>
     </div>
 
-    <div class="container">
-        <h2>2. Assignment Problem (Penugasan)</h2>
+    <div class="card">
+        <h2>2. Masalah Penugasan (Efisiensi Gaji)</h2>
 
         <div class="question-box">
-            <strong>Soal:</strong><br>
-            Tentukan biaya minimal penempatan 4 manager (Adi, Bayu, Cahyo, Darius) ke 4 cabang (Keputih, Ngagel, Ketintang, Darmo Indah).
+            <h3>Soal Lengkap:</h3>
+            <p>Lala memiliki usaha kafe di Surabaya. Efisiensi gaji 4 calon manager (Adi, Bayu, Cahyo, Darius) ke 4 cabang (Keputih, Ngagel, Ketintang, Darmo Indah).<br>
+            Tentukan biaya minimal.</p>
         </div>
 
-        <h3>Matriks Solusi Optimal:</h3>
-        <p>Menggunakan logika alokasi biaya terkecil (Greedy) dengan mempertimbangkan Opportunity Cost.</p>
+        <div class="logic-box">
+            <span class="logic-title">Logika Pengambilan Keputusan:</span>
+            Lihat tabel di bawah. 
+            <ul>
+                <li><strong>Adi:</strong> Kalau dia ditaruh di Keputih/Ngagel/Darmo, gajinya mahal (80-90an). Tapi di Ketintang cuma 69. <strong>Wajib ambil Ketintang.</strong></li>
+                <li><strong>Cahyo:</strong> Dia murah sekali di Keputih (11) dan Ketintang (5). Tapi Ketintang sudah diambil Adi (karena Adi tidak punya opsi lain yg murah). Jadi Cahyo "mengalah" ke Keputih.</li>
+            </ul>
+        </div>
 
         <table>
-            <thead>
-                <tr>
-                    <th>Manager / Cabang</th>
-                    <th>Keputih</th>
-                    <th>Ngagel</th>
-                    <th>Ketintang</th>
-                    <th>Darmo Indah</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Adi</strong></td>
-                    <td>82</td>
-                    <td>83</td>
-                    <td class="selected">69 (Pilih)</td>
-                    <td>92</td>
-                </tr>
-                <tr>
-                    <td><strong>Bayu</strong></td>
-                    <td>77</td>
-                    <td class="selected">37 (Pilih)</td>
-                    <td>49</td>
-                    <td>92</td>
-                </tr>
-                <tr>
-                    <td><strong>Cahyo</strong></td>
-                    <td class="selected">11 (Pilih)</td>
-                    <td>69</td>
-                    <td>5</td>
-                    <td>86</td>
-                </tr>
-                <tr>
-                    <td><strong>Darius</strong></td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>98</td>
-                    <td class="selected">23 (Pilih)</td>
-                </tr>
-            </tbody>
+            <tr>
+                <th>Manager</th><th>Keputih</th><th>Ngagel</th><th>Ketintang</th><th>Darmo Indah</th>
+            </tr>
+            <tr>
+                <td>Adi</td><td>82</td><td>83</td><td class="opt-cell">69 (Ambil)</td><td>92</td>
+            </tr>
+            <tr>
+                <td>Bayu</td><td>77</td><td class="opt-cell">37 (Ambil)</td><td>49</td><td>92</td>
+            </tr>
+            <tr>
+                <td>Cahyo</td><td class="opt-cell">11 (Ambil)</td><td>69</td><td>5 (Konflik)</td><td>86</td>
+            </tr>
+            <tr>
+                <td>Darius</td><td>8</td><td>9</td><td>98</td><td class="opt-cell">23 (Ambil)</td>
+            </tr>
         </table>
-
-        <p><strong>Rincian Biaya:</strong></p>
-        <ul>
-            <li>Adi ke Ketintang: 69</li>
-            <li>Bayu ke Ngagel: 37</li>
-            <li>Cahyo ke Keputih: 11</li>
-            <li>Darius ke Darmo Indah: 23</li>
-        </ul>
-        <p class="result-highlight">Total Biaya Minimal = 69 + 37 + 11 + 23 = 140</p>
+        <p><strong>Total Biaya:</strong> 69 + 37 + 11 + 23 = <strong>140</strong></p>
     </div>
 
-    <div class="container">
-        <h2>3. Transportation Problem (Least Cost)</h2>
+    <div class="card">
+        <h2>3. Masalah Transportasi (Pupuk Achsa)</h2>
 
         <div class="question-box">
-            <strong>Soal:</strong><br>
-            Supply Total: 160 ton. Demand Total: 180 ton.<br>
-            Metode: Least Cost (Biaya Terkecil).
+            <h3>Soal Lengkap:</h3>
+            <p>Tiga gudang (Jkt, Purwokerto, Bondowoso) stok: 50, 30, 80 ton.<br>
+            Empat toko (Jaya, Laris, Makmur, Sejahtera) butuh: 40, 50, 60, 30 ton.<br>
+            Tentukan biaya minimal dengan Least Cost.</p>
         </div>
 
-        <h3>Tabel Distribusi & Alur Logistik:</h3>
-        <p>Karena Demand (180) > Supply (160), maka ada kekurangan suplai sebesar 20 ton (ditandai merah).</p>
+        <div class="logic-box">
+            <span class="logic-title">Analisis Supply vs Demand:</span>
+            Supply Total = 50+30+80 = <strong>160 ton</strong>.<br>
+            Demand Total = 40+50+60+30 = <strong>180 ton</strong>.<br>
+            Artinya: Permintaan lebih besar dari barang yang ada. Pasti ada toko yang <strong>kurang 20 ton</strong>. Dalam tabel di bawah, Toko Makmur yang kita korbankan (kurang suplai) karena biaya kirim dari Jakarta ke Makmur mahal, jadi sisa stok Jakarta dikasih ke dia seadanya.
+        </div>
+
+        <table>
+            <tr>
+                <th>Gudang / Toko</th><th>Jaya</th><th>Laris</th><th>Makmur</th><th>Sejahtera</th><th>Stok</th>
+            </tr>
+            <tr>
+                <td>Jakarta</td>
+                <td>10</td>
+                <td>-</td>
+                <td class="opt-cell">40</td>
+                <td>-</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>Purwokerto</td>
+                <td class="opt-cell">30</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>Bondowoso</td>
+                <td>-</td>
+                <td class="opt-cell">50</td>
+                <td>-</td>
+                <td class="opt-cell">30</td>
+                <td>80</td>
+            </tr>
+            <tr>
+                <td><strong>Kurang (Dummy)</strong></td>
+                <td>-</td>
+                <td>-</td>
+                <td class="dummy-cell">20</td>
+                <td>-</td>
+                <td>20</td>
+            </tr>
+        </table>
+        <p><strong>Biaya Total:</strong> (50x3) + (30x4) + (30x4) + (10x5) + (40x5) = 640 ton-km.<br>
+        640 x Rp 20.000 = <strong>Rp 12.800.000</strong></p>
+    </div>
+
+
+    <div class="section-divider">BAGIAN 2: Soal Lembar Kedua</div>
+
+    <div class="card">
+        <h2>4. Transportasi Pabrik Sepatu (Dengan Jalur Rusak)</h2>
+
+        <div class="question-box">
+            <h3>Soal Lengkap:</h3>
+            <p>3 Pabrik (Bandung, Jkt, Bogor) persediaan 900, 600, 300.<br>
+            4 Toko (Pantas, Rapi, Keren, Jaya) daya tampung 450, 900, 300, 250.<br>
+            <strong>Info Penting:</strong> Jalur Bogor ke Toko Jaya RUSAK TOTAL.</p>
+        </div>
+
+        <div class="logic-box">
+            <span class="logic-title">Strategi Least Cost dengan Pemblokiran:</span>
+            1. Total Demand (1900) > Supply (1800). Kurang 100 pasang.<br>
+            2. Sel "Bogor-Jaya" kita coret (hitamkan) agar tidak terpilih.<br>
+            3. Kita isi dulu sel yang biayanya paling murah (Jkt-Pantas @20rb).
+        </div>
+
+        <table>
+            <tr>
+                <th>Pabrik/Toko</th><th>Pantas</th><th>Rapi</th><th>Keren</th><th>Jaya</th><th>Supply</th>
+            </tr>
+            <tr>
+                <td>Bandung</td><td>-</td><td class="opt-cell">500</td><td class="opt-cell">300</td><td class="opt-cell">100</td><td>900</td>
+            </tr>
+            <tr>
+                <td>Jakarta</td><td class="opt-cell">450</td><td>-</td><td>-</td><td class="opt-cell">150</td><td>600</td>
+            </tr>
+            <tr>
+                <td>Bogor</td><td>-</td><td class="opt-cell">300</td><td>-</td><td class="blocked-cell">RUSAK</td><td>300</td>
+            </tr>
+            <tr>
+                <td><strong>Kurang</strong></td><td>-</td><td class="dummy-cell">100</td><td>-</td><td>-</td><td>100</td>
+            </tr>
+        </table>
+        <p><strong>Total Biaya:</strong> Rp 400.000.000</p>
+    </div>
+
+    <div class="card">
+        <h2>5. Penugasan (Matriks 5x5)</h2>
+
+        <div class="question-box">
+            <h3>Soal Lengkap:</h3>
+            <p>Tentukan ongkos minimum penugasan S1-S5 ke T1-T5 berdasarkan tabel ongkos berikut.</p>
+        </div>
+
+        <div class="logic-box">
+            <span class="logic-title">Kenapa pilihannya begini?</span>
+            Fokus pada angka terkecil per baris:
+            <ul>
+                <li>Baris S2: Angka terkecil adalah 2 (di T2). Ambil!</li>
+                <li>Baris S5: Angka terkecil adalah 4 (di T3). Ambil!</li>
+                <li>Sisa S1, S3, S4. S1 paling murah di T1 (5). S3 terpaksa ke T4 (4). S4 terpaksa ke T5 (6).</li>
+            </ul>
+        </div>
+
+        <table>
+            <tr><th></th><th>T1</th><th>T2</th><th>T3</th><th>T4</th><th>T5</th></tr>
+            <tr><td>S1</td><td class="opt-cell">5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+            <tr><td>S2</td><td>4</td><td class="opt-cell">2</td><td>3</td><td>5</td><td>6</td></tr>
+            <tr><td>S3</td><td>6</td><td>5</td><td>3</td><td class="opt-cell">4</td><td>5</td></tr>
+            <tr><td>S4</td><td>3</td><td>4</td><td>7</td><td>5</td><td class="opt-cell">6</td></tr>
+            <tr><td>S5</td><td>9</td><td>6</td><td class="opt-cell">4</td><td>7</td><td>8</td></tr>
+        </table>
+        <p>Total = 5 + 2 + 4 + 6 + 4 = <strong>21</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>6. Integer Programming (Branch and Bound) - Soal Kedua</h2>
+
+        <div class="question-box">
+            <h3>Soal Lengkap:</h3>
+            <p>Maksimalkan Z = 5x1 + 4x2<br>
+            Kendala: x1 + x2 &le; 5; 10x1 + 6x2 &le; 45.<br>
+            Integer non negatif.</p>
+        </div>
+<div class="question-box">
+            <h3>Untuk Soal 6 (x1 dan x2):</h3>
+            <p>Menggunakan Eliminasi Garis 1 dan 2:</p>
+            <div class="math-box" style="background: #fff; border-left: 3px solid #2c3e50;">
+                1) x1 + x2 = 5 (Dikali 10) &rarr; 10x1 + 10x2 = 50<br>
+                2) Bandingkan dengan: 10x1 + 6x2 = 45<br>
+                3) Kurangi keduanya: 4x2 = 5 &rarr; <strong>x2 = 1.25</strong><br>
+                4) Cari x1: 5 - 1.25 &rarr; <strong>x1 = 3.75</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Mengapa Tanda (&le;) Berubah Menjadi (=)?</h2>
+        
+        <div style="background-color: #e8f6f3; padding: 15px; border-left: 5px solid #27ae60; margin-bottom: 20px;">
+            <strong>Tujuan Utama:</strong> Kita sedang mencari <em>Titik Potong (Intersection)</em>.
+        </div>
+
+        <p>Secara matematika, kamu tidak bisa mencari satu titik pertemuan spesifik antara dua "wilayah" (area arsiran). Kamu hanya bisa mencari titik pertemuan presisi antara dua <strong>"garis"</strong>.</p>
+
+        <div style="background-color: #fdf2e9; padding: 20px; border-radius: 8px; border: 1px solid #f39c12; margin: 20px 0;">
+            <h3 style="margin-top: 0; color: #d35400;">🏠 Analogi Dinding & Pojokan</h3>
+            <p>Bayangkan dua dinding bertemu di pojokan sebuah ruangan:</p>
+            <ul>
+                <li><strong>Dinding A</strong> adalah garis batas: <code>-x + 3y = 6</code></li>
+                <li><strong>Dinding B</strong> adalah garis batas: <code>7x + y = 35</code></li>
+            </ul>
+            <p>Titik pertemuan (pojokan) di mana kedua dinding itu bertabrakan adalah titik koordinat <strong>(4.5, 3.5)</strong>.</p>
+        </div>
+
+        <p><strong>Kesimpulan:</strong></p>
+        <p>Untuk menemukan koordinat pojokan itu secara presisi (mengetahui nilai X dan Y persisnya berapa), kita harus menganggap kita sedang menghitung garis pagarnya (persamaannya). Itulah alasannya kenapa tanda <strong>&le;</strong> (kurang dari) harus diubah sementara menjadi <strong>=</strong> (sama dengan) saat melakukan perhitungan.</p>
+    </div>
+
 
         <div class="mermaid">
-            sankey-beta
-            Jakarta, Jaya, 10
-            Jakarta, Makmur, 40
-            Purwokerto, Jaya, 30
-            Bondowoso, Laris, 50
-            Bondowoso, Sejahtera, 30
-            Kekurangan_Stok, Makmur, 20
+            graph TD
+            start["<b>Awal</b><br>x1=3.75, x2=1.25<br>Z=23.75"]
+            start -->|x1 <= 3| left["<b>Cabang Kiri</b><br>x1=3<br>x2 max 2.5 -> ambil <b>2</b><br>Z = 5(3)+4(2) = <b>23</b>"]
+            start -->|x1 >= 4| right["<b>Cabang Kanan</b><br>x1=4<br>x2 max 0.8 -> ambil <b>0</b><br>Z = 5(4)+4(0) = <b>20</b>"]
+            
+            left --> win["<b>SOLUSI</b><br>Z=23 Lebih besar"]
+            style win fill:#2ecc71,color:white
         </div>
-
-        <br>
-        <h3>Tabel Perhitungan Biaya:</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Rute</th>
-                    <th>Muatan (Ton)</th>
-                    <th>Jarak (Faktor Biaya)</th>
-                    <th>Total Jarak (Ton-km)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Bondowoso &rarr; Laris</td>
-                    <td>50</td>
-                    <td>3</td>
-                    <td>150</td>
-                </tr>
-                <tr>
-                    <td>Purwokerto &rarr; Jaya</td>
-                    <td>30</td>
-                    <td>4</td>
-                    <td>120</td>
-                </tr>
-                <tr>
-                    <td>Bondowoso &rarr; Sejahtera</td>
-                    <td>30</td>
-                    <td>4</td>
-                    <td>120</td>
-                </tr>
-                <tr>
-                    <td>Jakarta &rarr; Jaya</td>
-                    <td>10</td>
-                    <td>5</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>Jakarta &rarr; Makmur</td>
-                    <td>40</td>
-                    <td>5</td>
-                    <td>200</td>
-                </tr>
-                <tr style="background-color: #eee; font-weight: bold;">
-                    <td colspan="3" style="text-align: right;">Total Ton-km</td>
-                    <td>640</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p class="result-highlight">Biaya Total = 640 &times; Rp 20.000 = Rp 12.800.000</p>
     </div>
 
 </body>
