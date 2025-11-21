@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solusi Lengkap Riset Operasi</title>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .question-box {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .selected {
+            background-color: #27ae60;
+            color: white;
+            font-weight: bold;
+            border: 2px solid #1e8449;
+        }
+        .dummy {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .note {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+        .result-highlight {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #d35400;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Soal Soal Riset Operasi UAS</h1>
+    <p>Soal Pertamap>
+
+    <div class="container">
+        <h2>1. Integer Programming (Metode Branch & Bound)</h2>
+        
+        <div class="question-box">
+            <strong>Soal:</strong><br>
+            Maksimalkan Z = 7x + 9y<br>
+            Kendala: -x + 3y ≤ 6; 7x + y ≤ 35; y ≤ 7<br>
+            Syarat: x, y bilangan integer non-negatif.
+        </div>
+
+        <h3>Analisis Logika:</h3>
+        <ol>
+            <li>Solusi awal (Relaksasi LP) ditemukan di titik potong garis kendala: <strong>x = 4.5, y = 3.5</strong> dengan Z = 63.</li>
+            <li>Karena hasil desimal, kita lakukan <strong>Branching</strong> (Percabangan) pada variabel x.</li>
+            <li>Kita uji x ≤ 4 dan x ≥ 5.</li>
+        </ol>
+
+        <h3>Visualisasi Pohon Keputusan (Branch & Bound Tree):</h3>
+        <div class="mermaid">
+            graph TD
+            A[<b>NODE A (Awal)</b><br>x=4.5, y=3.5<br>Z=63<br>Status: Tidak Layak (Pecahan)]
+            A -->|Cabang Kiri: x <= 4| B(<b>NODE B</b><br>x=4<br>y=3.33<br>Z=58<br>Status: Masih Pecahan)
+            A -->|Cabang Kanan: x >= 5| C(<b>NODE C</b><br>x=5<br>y=0<br>Z=35<br>Status: Integer, tapi Z kecil)
+            
+            B -->|Membulatkan y ke bawah| D[<b>NODE D (SOLUSI)</b><br>x=4, y=3<br>Z=55<br>Status: Integer Optimal]
+            B -->|Membulatkan y ke atas| E[<b>NODE E</b><br>x=4, y=4<br>Status: Infeasible / Melanggar Batas]
+
+            style D fill:#2ecc71,stroke:#333,stroke-width:4px,color:white
+            style A fill:#f1c40f,stroke:#333
+            style C fill:#e74c3c,stroke:#333,color:white
+        </div>
+
+        <p class="result-highlight">Kesimpulan: Solusi optimal integer adalah x = 4, y = 3 dengan Z = 55.</p>
+    </div>
+
+    <div class="container">
+        <h2>2. Assignment Problem (Penugasan)</h2>
+
+        <div class="question-box">
+            <strong>Soal:</strong><br>
+            Tentukan biaya minimal penempatan 4 manager (Adi, Bayu, Cahyo, Darius) ke 4 cabang (Keputih, Ngagel, Ketintang, Darmo Indah).
+        </div>
+
+        <h3>Matriks Solusi Optimal:</h3>
+        <p>Menggunakan logika alokasi biaya terkecil (Greedy) dengan mempertimbangkan Opportunity Cost.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Manager / Cabang</th>
+                    <th>Keputih</th>
+                    <th>Ngagel</th>
+                    <th>Ketintang</th>
+                    <th>Darmo Indah</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Adi</strong></td>
+                    <td>82</td>
+                    <td>83</td>
+                    <td class="selected">69 (Pilih)</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td><strong>Bayu</strong></td>
+                    <td>77</td>
+                    <td class="selected">37 (Pilih)</td>
+                    <td>49</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td><strong>Cahyo</strong></td>
+                    <td class="selected">11 (Pilih)</td>
+                    <td>69</td>
+                    <td>5</td>
+                    <td>86</td>
+                </tr>
+                <tr>
+                    <td><strong>Darius</strong></td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>98</td>
+                    <td class="selected">23 (Pilih)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Rincian Biaya:</strong></p>
+        <ul>
+            <li>Adi ke Ketintang: 69</li>
+            <li>Bayu ke Ngagel: 37</li>
+            <li>Cahyo ke Keputih: 11</li>
+            <li>Darius ke Darmo Indah: 23</li>
+        </ul>
+        <p class="result-highlight">Total Biaya Minimal = 69 + 37 + 11 + 23 = 140</p>
+    </div>
+
+    <div class="container">
+        <h2>3. Transportation Problem (Least Cost)</h2>
+
+        <div class="question-box">
+            <strong>Soal:</strong><br>
+            Supply Total: 160 ton. Demand Total: 180 ton.<br>
+            Metode: Least Cost (Biaya Terkecil).
+        </div>
+
+        <h3>Tabel Distribusi & Alur Logistik:</h3>
+        <p>Karena Demand (180) > Supply (160), maka ada kekurangan suplai sebesar 20 ton (ditandai merah).</p>
+
+        <div class="mermaid">
+            sankey-beta
+            Jakarta, Jaya, 10
+            Jakarta, Makmur, 40
+            Purwokerto, Jaya, 30
+            Bondowoso, Laris, 50
+            Bondowoso, Sejahtera, 30
+            Kekurangan_Stok, Makmur, 20
+        </div>
+
+        <br>
+        <h3>Tabel Perhitungan Biaya:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rute</th>
+                    <th>Muatan (Ton)</th>
+                    <th>Jarak (Faktor Biaya)</th>
+                    <th>Total Jarak (Ton-km)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bondowoso &rarr; Laris</td>
+                    <td>50</td>
+                    <td>3</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>Purwokerto &rarr; Jaya</td>
+                    <td>30</td>
+                    <td>4</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>Bondowoso &rarr; Sejahtera</td>
+                    <td>30</td>
+                    <td>4</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>Jakarta &rarr; Jaya</td>
+                    <td>10</td>
+                    <td>5</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Jakarta &rarr; Makmur</td>
+                    <td>40</td>
+                    <td>5</td>
+                    <td>200</td>
+                </tr>
+                <tr style="background-color: #eee; font-weight: bold;">
+                    <td colspan="3" style="text-align: right;">Total Ton-km</td>
+                    <td>640</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="result-highlight">Biaya Total = 640 &times; Rp 20.000 = Rp 12.800.000</p>
+    </div>
+
+</body>
+</html>
+
